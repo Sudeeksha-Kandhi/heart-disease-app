@@ -238,21 +238,7 @@ if st.button("Predict"):
         """)
         st.markdown('</div>', unsafe_allow_html=True)
 
-        # Feature Importance
-        feature_names = ['age','sex','cp','trestbps','chol','fbs','restecg',
-                         'thalach','exang','oldpeak','slope','ca','thal']
-
-        importances = model.named_steps['model'].feature_importances_
-
-        df_imp = pd.DataFrame({
-            'Feature': feature_names,
-            'Importance': importances
-        }).sort_values(by='Importance', ascending=False)
-
-        st.markdown('<div class="card">', unsafe_allow_html=True)
-        st.subheader("📊 Feature Importance")
-        st.bar_chart(df_imp.set_index('Feature'))
-        st.markdown('</div>', unsafe_allow_html=True)
+        
 
         # Report
         report = f"""
